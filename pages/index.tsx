@@ -2,20 +2,21 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const router = useRouter();
 
   return (
     <div className={styles.container}>
-	<img width={300} height={100} src="https://bafybeihej6esxlwjiqcifrkcj3tkkn3xterxtr5tnynot6zsct4hwrwedi.ipfs.nftstorage.link/JKH.png" />
+	<img alt="logo" width={300} height={100} src="https://bafybeihej6esxlwjiqcifrkcj3tkkn3xterxtr5tnynot6zsct4hwrwedi.ipfs.nftstorage.link/JKH.png" />
       {/* Top Section */}
       <h1 className={styles.h1}>BoredWhalesYachtClub MINTING AND STAKING</h1>
       <div className={styles.nftBoxGrid}>
-        <a
+        <Link
           className={styles.optionSelectBox}
           role="button"
-          href="/"
+		  href="/"
         >
           {/* Mint a new NFT */}
           <Image src="/icons/drop.png" alt="drop" width={90} height={64} />
@@ -23,7 +24,7 @@ const Home: NextPage = () => {
           <p className={styles.selectBoxDescription}>
             Mint a Whale NFT and stake it to earn $WHLS per day under controlled staking.
           </p>
-        </a>
+        </Link>
 
         <div
           className={styles.optionSelectBox}

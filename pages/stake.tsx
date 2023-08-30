@@ -18,6 +18,7 @@ import {
   tokenContractAddress,
 } from "../consts/contractAddresses";
 import styles from "../styles/Home.module.css";
+import Image from "next/image";
 
 const Stake: NextPage = () => {
   const address = useAddress();
@@ -67,7 +68,7 @@ const Stake: NextPage = () => {
 
   return (
     <div className={styles.container}>
-		<img width={300} height={100} src="https://bafybeihej6esxlwjiqcifrkcj3tkkn3xterxtr5tnynot6zsct4hwrwedi.ipfs.nftstorage.link/JKH.png" />
+		<img alt="logo" width={300} height={100} src="https://bafybeihej6esxlwjiqcifrkcj3tkkn3xterxtr5tnynot6zsct4hwrwedi.ipfs.nftstorage.link/JKH.png" />
       <h1 className={styles.h1}>Stake your #BWYC🐳 NFT to Earn the Utility Token(WHLS).</h1>
       <hr className={`${styles.divider} ${styles.spacerTop}`} />
 
