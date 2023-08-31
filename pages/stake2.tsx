@@ -11,7 +11,7 @@ import {
 import { BigNumber, ethers } from "ethers";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
-import NFTCard from "../components/NFTCard";
+import NFTCard from "../components/NFTCard1";
 import {
  contractAddress2,
   stakingContractAddress1,
@@ -31,7 +31,8 @@ const Stake2: NextPage = () => {
     "token"
   );
   const { contract, isLoading } = useContract(stakingContractAddress1);
-const { data: ownedNFTs } = useOwnedNFTs(contract, "0x91e7Dbb1E86f2Df9A9509a407363BA93Aec01Bf5");
+  const { contract1 } = useContract("0x98E8B58c44e3c7f08171bb57aeD010fDF71B351E");
+const { data: ownedNFTs } = useOwnedNFTs(nftDropContract, address);
   const { data: tokenBalance } = useTokenBalance(tokenContract, address);
   const [claimableRewards, setClaimableRewards] = useState<BigNumber>();
   const { data: stakedTokens } = useContractRead(contract, "getStakeInfo", [
