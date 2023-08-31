@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 import NFTCard from "../components/NFTCard";
 import {
  contractAddress2,
-  stakingContractAddress,
+  stakingContractAddress1,
   tokenContractAddress,
 } from "../consts/contractAddresses";
 import styles from "../styles/Home.module.css";
@@ -30,8 +30,8 @@ const Stake2: NextPage = () => {
     tokenContractAddress,
     "token"
   );
-  const { contract, isLoading } = useContract(stakingContractAddress);
-  const { data: ownedNfts } = useOwnedNFTs(contractAddress2, address);
+  const { contract, isLoading } = useContract(stakingContractAddress1);
+  const { data: ownedNFTs} = useOwnedNFTs(contract, "0x98E8B58c44e3c7f08171bb57aeD010fDF71B351E");
   const { data: tokenBalance } = useTokenBalance(tokenContract, address);
   const [claimableRewards, setClaimableRewards] = useState<BigNumber>();
   const { data: stakedTokens } = useContractRead(contract, "getStakeInfo", [
@@ -54,7 +54,7 @@ const Stake2: NextPage = () => {
 
     const isApproved = await nftDropContract?.isApproved(
       address,
-      stakingContractAddress
+      stakingContractAddress1
     );
     if (!isApproved) {
       await nftDropContract?.setApprovalForAll(stakingContractAddress, true);
@@ -106,7 +106,7 @@ const Stake2: NextPage = () => {
           <Web3Button
 		   style={{backgroundColor: "black", borderStyle: "solid", borderColor: "Orange", color: "Orange"}}
             action={(contract) => contract.call("claimRewards")}
-            contractAddress={stakingContractAddress}
+            contractAddress={stakingContractAddress1}
           >
             Claim Rewards
           </Web3Button>
@@ -126,7 +126,7 @@ const Stake2: NextPage = () => {
           <hr className={`${styles.divider} ${styles.spacerTop}`} />
           <h2>Your Unstaked Whale NFTs</h2>
           <div className={styles.nftBoxGrid}>
-            {ownedNfts?.map((nft) => (
+            {ownedNFTs?.map((nft) => (
               <div className={styles.nftBox} key={nft.metadata.id.toString()}>
                 <ThirdwebNftMedia
 				 style={{
@@ -138,7 +138,7 @@ const Stake2: NextPage = () => {
                 <h3>{nft.metadata.name}</h3>
                 <Web3Button
 				style={{backgroundColor: "black", borderStyle: "solid", borderColor: "Orange", color: "Orange"}}
-                  contractAddress={stakingContractAddress}
+                  contractAddress={stakingContractAddress1}
                   action={() => stakeNft(nft.metadata.id)}
                 >
                   Stake

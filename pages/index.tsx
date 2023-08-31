@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
-import Link from "next/link";
+
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
 		 onClick={() => router.push(`/stake`)}
         >
           {/* Mint a new NFT */}
-          <Image style={{marginTop: "5%"}} src="/icons/drop.png" alt="drop" width={150} height={250} style={{borderRadius: "8px", marginTop: "5%", borderStyle: "solid", borderWidth: "1px", borderColor: "orange"}} />
+          <Image  src="/icons/drop.png" alt="drop" width={150} height={250} style={{borderRadius: "8px", marginTop: "5%", borderStyle: "solid", borderWidth: "1px", borderColor: "orange"}} />
           <h2 className={styles.selectBoxTitle}>Stake Your Whale NFT</h2>
           <p className={styles.selectBoxDescription}>
             Stake #BoredWhale NFT to earn 1 $WHLS/DAY
