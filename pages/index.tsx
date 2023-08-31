@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         <div
           className={styles.optionSelectBox}
           role="button"
-		  href="/"
+		 onClick={() => router.push(`/mint`)}
         >
           {/* Mint a new NFT */}
           <Image style={{marginTop: "5%"}} src="/icons/drop.png" alt="drop" width={90} height={64} />
