@@ -72,7 +72,7 @@ const Stake2: NextPage = () => {
 
   return (
     <div className={styles.container}>
-			<Image alt="logo" width={300} height={100} src="/icons/logo" />
+			<Image alt="logo" width={300} height={100} src="/icons/logo.png" />
       <h1 className={styles.h1}>Stake your #BWYC🐳 NFT to Earn the Utility Token(WHLS).</h1>
       <hr className={`${styles.divider} ${styles.spacerTop}`} />
 

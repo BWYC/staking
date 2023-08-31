@@ -14,9 +14,7 @@ const sdk = new ThirdwebSDK(CoreBlockchain, {
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThirdwebProvider
-      activeChain={activeChain}
-      clientId: "65a85b91315ca838d7a8472fb0e64f92"
-    >
+      activeChain={activeChain}>
       <Component {...pageProps} />
     </ThirdwebProvider>
   );

@@ -9,7 +9,7 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-	<Image alt="logo" width={300} height={100} src="/icons/logo" />
+	<Image alt="logo" width={300} height={100} src="/icons/logo.png" />
       {/* Top Section */}
       <h1 className={styles.h1} style={{fontFamily: "courier"}}>Bored Whales Yacht Club STAKING🐋</h1>
       <div className={styles.nftBoxGrid}>
