@@ -20,7 +20,7 @@ import {
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
 
-const Stake: NextPage = () => {
+const Stake2: NextPage = () => {
   const address = useAddress();
   const { contract: nftDropContract } = useContract(
     contractAddress2,
@@ -152,4 +152,4 @@ const Stake: NextPage = () => {
   );
 };
 
-export default Stake;
+export default Stake2;
