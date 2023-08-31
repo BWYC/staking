@@ -31,7 +31,7 @@ const Stake2: NextPage = () => {
     "token"
   );
   const { contract, isLoading } = useContract(stakingContractAddress1);
-  const { data: ownedNFTs} = useOwnedNFTs(contract, "0x98E8B58c44e3c7f08171bb57aeD010fDF71B351E");
+const { data: ownedNFTs } = useOwnedNFTs(contract, "0x91e7Dbb1E86f2Df9A9509a407363BA93Aec01Bf5");
   const { data: tokenBalance } = useTokenBalance(tokenContract, address);
   const [claimableRewards, setClaimableRewards] = useState<BigNumber>();
   const { data: stakedTokens } = useContractRead(contract, "getStakeInfo", [
@@ -73,7 +73,7 @@ const Stake2: NextPage = () => {
   return (
     <div className={styles.container}>
 			<Image alt="logo" width={300} height={100} src="/icons/logo.png" />
-      <h1 className={styles.h1}>Stake your #BWYC🐳 NFT to Earn the Utility Token(WHLS).</h1>
+      <h1 className={styles.h1}>Stake your Whalecards NFT to Earn the Utility Token(WHLS).</h1>
       <hr className={`${styles.divider} ${styles.spacerTop}`} />
 
       {!address ? (
@@ -112,7 +112,7 @@ const Stake2: NextPage = () => {
           </Web3Button>
 
           <hr className={`${styles.divider} ${styles.spacerTop}`} />
-          <h2>Your Staked Whale NFT</h2>
+          <h2>Your Staked Whalecard🎴</h2>
           <div className={styles.nftBoxGrid}>
             {stakedTokens &&
               stakedTokens[0]?.map((stakedToken: BigNumber) => (
@@ -124,7 +124,7 @@ const Stake2: NextPage = () => {
           </div>
 
           <hr className={`${styles.divider} ${styles.spacerTop}`} />
-          <h2>Your Unstaked Whale NFTs</h2>
+          <h2>Your Unstaked Whalecard🎴</h2>
           <div className={styles.nftBoxGrid}>
             {ownedNFTs?.map((nft) => (
               <div className={styles.nftBox} key={nft.metadata.id.toString()}>
