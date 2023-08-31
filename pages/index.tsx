@@ -9,33 +9,33 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-	<Image alt="logo" width={300} height={100} src="./logo/public/logo.png" />
+	<img alt="logo" width={300} height={100} src="https://bafybeihej6esxlwjiqcifrkcj3tkkn3xterxtr5tnynot6zsct4hwrwedi.ipfs.nftstorage.link/JKH.png" />
       {/* Top Section */}
-      <h1 className={styles.h1}>BoredWhalesYachtClub MINTING AND STAKING</h1>
+      <h1 className={styles.h1} style={{fontFamily: "courier"}}>Bored Whales Yacht Club STAKING🐋</h1>
       <div className={styles.nftBoxGrid}>
         <div
           className={styles.optionSelectBox}
           role="button"
-		 onClick={() => router.push(`/mint`)}
+		 onClick={() => router.push(`/stake`)}
         >
           {/* Mint a new NFT */}
-          <Image style={{marginTop: "5%"}} src="/icons/drop.png" alt="drop" width={90} height={64} />
-          <h2 className={styles.selectBoxTitle}>Mint a new NFT</h2>
+          <Image style={{marginTop: "5%"}} src="/icons/drop.png" alt="drop" width={150} height={250} style={{borderRadius: "8px", marginTop: "5%", borderStyle: "solid", borderWidth: "1px", borderColor: "orange"}} />
+          <h2 className={styles.selectBoxTitle}>Stake Your Whale NFT</h2>
           <p className={styles.selectBoxDescription}>
-            Mint a Whale NFT and stake it to earn $WHLS per day under controlled staking.
+            Stake #BoredWhale NFT to earn 1 $WHLS/DAY
           </p>
         </div>
 
         <div
           className={styles.optionSelectBox}
           role="button"
-          onClick={() => router.push(`/stake`)}
+          onClick={() => router.push(`/stake2`)}
         >
           {/* Staking an NFT */}
-          <Image src="/icons/token.png" alt="token" width={80} height={70} style={{marginTop: "5%"}} />
-          <h2 className={styles.selectBoxTitle}>Stake Your NFTs</h2>
+          <Image src="/icons/token.png" alt="token" width={150} height={250} style={{borderRadius: "8px", marginTop: "5%", borderStyle: "solid", borderWidth: "1px", borderColor: "white"}} />
+          <h2 className={styles.selectBoxTitle}>Stake Your WhaleCards</h2>
           <p className={styles.selectBoxDescription}>
-           Staking of #BWYC is free for all whales.
+           WhaleCards are only unique to 1 address and staking them earns you more tokens but minting is expensive.
           </p>
         </div>
       </div>
