@@ -48,7 +48,7 @@ const Home: NextPage = () => {
           <Link className={styles.selectBoxTitle} href="https://app.youngparrotnft.com/core/launchpads/bwyc"> MINT #BWYC </Link>
           <p className={styles.selectBoxDescription}>
        10,000 Whale NFT can be minted on YoungParrot NFT Marketplace 
-		   50 cards can be claimed per address. PRICE: 1 CORE
+		   Price: 0.650 CORE <br></br> Member Price: 0.325 CORE 
           </p>
         </div>
 		
