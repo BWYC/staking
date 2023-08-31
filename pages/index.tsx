@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
+import Link from "next/link"
 
 
 const Home: NextPage = () => {
@@ -36,6 +37,31 @@ const Home: NextPage = () => {
           <h2 className={styles.selectBoxTitle}>Stake Your WhaleCards</h2>
           <p className={styles.selectBoxDescription}>
            WhaleCards are only unique to 1 address and staking them earns you more tokens but minting is expensive.
+          </p>
+        </div>
+		
+		<div
+          className={styles.optionSelectBox}
+          role="button"
+        >
+          {/* Staking an NFT */}
+          <Link className={styles.selectBoxTitle} href="https://app.youngparrotnft.com/core/launchpads/bwyc"> MINT #BWYC </Link>
+          <p className={styles.selectBoxDescription}>
+       10,000 Whale NFT can be minted on YoungParrot NFT Marketplace 
+		   50 cards can be claimed per address. PRICE: 1 CORE
+          </p>
+        </div>
+		
+		<div
+          className={styles.optionSelectBox}
+          role="button"
+          onClick={() => router.push(`/mint`)}
+        >
+          {/* Staking an NFT */}
+          <h2 className={styles.selectBoxTitle}>MINT NEW WHALECARD</h2>
+          <p className={styles.selectBoxDescription}>
+           WhaleCards are only unique to 1 address and staking them earns you more tokens but minting is expensive.
+		   50 cards can be claimed per address. PRICE: 1 CORE
           </p>
         </div>
       </div>
