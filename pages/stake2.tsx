@@ -23,7 +23,7 @@ import Image from "next/image";
 const Stake: NextPage = () => {
   const address = useAddress();
   const { contract: nftDropContract } = useContract(
-    nftDropContractAddress,
+    contractAddress2,
     "nft-drop"
   );
   const { contract: tokenContract } = useContract(
