@@ -31,7 +31,7 @@ const Stake2: NextPage = () => {
     "token"
   );
   const { contract, isLoading } = useContract(stakingContractAddress1);
-  const { contract1 } = useContract("0x98E8B58c44e3c7f08171bb57aeD010fDF71B351E");
+
 const { data: ownedNFTs } = useOwnedNFTs(nftDropContract, address);
   const { data: tokenBalance } = useTokenBalance(tokenContract, address);
   const [claimableRewards, setClaimableRewards] = useState<BigNumber>();
