@@ -57,7 +57,7 @@ const { data: ownedNFTs } = useOwnedNFTs(contract, "0x91e7Dbb1E86f2Df9A9509a4073
       stakingContractAddress1
     );
     if (!isApproved) {
-      await nftDropContract?.setApprovalForAll(stakingContractAddress, true);
+      await nftDropContract?.setApprovalForAll(stakingContractAddress1, true);
     }
     await contract?.call("stake", [[id]]);
   }
