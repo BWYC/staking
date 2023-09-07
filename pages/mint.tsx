@@ -14,7 +14,7 @@ const Mint: NextPage = () => {
     <div className={styles.container}>
 	<Image alt="logo" width={300} height={100} src="/icons/logo.png" />
       <h1 className={styles.h1} style={{fontFamily: "courier"}}>Mint A WHALECARD. PRICE 0.6 CORE<br></br> LIMIT: 50/WALLET!</h1>
-      <Link href={"https://boredwhalesyachtclub.org"}>Without Whalecards, You Can not access Whaleverse(boredwhalesyachtclub.org)An Epic World for Whales.</Link> 
+      <Link href={"https://boredwhalesyachtclub.org"} style={{color: "white"}}>Without Whalecards, You Can not access Whaleverse(boredwhalesyachtclub.org)An Epic World for Whales.</Link> 
       <hr className={`${styles.smallDivider} ${styles.detailPageHr}`} />
 
       <Web3Button
