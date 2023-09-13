@@ -58,10 +58,9 @@ const Home: NextPage = () => {
 		<div
           className={styles.optionSelectBox}
           role="button"
-          onClick={() => router.push(`/mint`)}
         >
           {/* Staking an NFT */}
-          <h2 className={styles.selectBoxTitle}>MINT NEW WHALECARD</h2>
+          <h2 className={styles.selectBoxTitle}><a href="https://boredwhalesyachtclub.org/login#mint" style={{color: "white", fontFamily: "courier", fontSize: "28px", fontWeight: "bolder", border: "0px"}}>MINT NEW WHALECARD</a></h2>
           <p className={styles.selectBoxDescription}>
 Whalecards have an unlimited supply but are burnable. 1000 Cards will be used to cross-chains, Card holders can stake to earn the utility token 
 at higher rates or trade on <a  href="https://marketplace.boredwalesyachtclub.org" style={{color: "white", fontFamily: "courier", fontSize: "16px", fontWeight: "bolder", border: "0px"}}>Whalecard Marketplace</a>.
