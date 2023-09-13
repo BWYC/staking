@@ -26,9 +26,14 @@ import {
           <div className={styles.nftBox}>
             {nft.metadata && (
               <ThirdwebNftMedia
-			  style={{
-			  marginLeft: "-28%",
-			  }}
+              style={{
+                marginLeft: "2%",
+                borderRadius: "16px",
+                border: "solid",
+                borderColor: "black",
+                borderWidth: "1px",
+                width: "auto"
+                }}
                 metadata={nft.metadata}
                 className={styles.nftMedia}
               />

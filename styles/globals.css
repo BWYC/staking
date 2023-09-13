@@ -31,7 +31,11 @@ select {
 }
 
 body {
-  background: black;
+  background-image: radial-gradient(
+    circle at center,
+    rgba(253, 152, 0, 0.892) 0%,
+    rgba(0, 0, 0, 0.86) 42%
+  );
   font-family: "Inter", sans-serif;
   color: var(--white);
   display: flex;

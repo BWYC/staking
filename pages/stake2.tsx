@@ -11,7 +11,7 @@ import {
 import { BigNumber, ethers } from "ethers";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
-import NFTCard from "../components/NFTCard1";
+import NFTCard1 from "../components/NFTCard1";
 import {
  contractAddress2,
   stakingContractAddress1,
@@ -62,13 +62,16 @@ const { data: ownedNFTs } = useOwnedNFTs(nftDropContract, address);
     }
     await contract?.call("stake", [[id]]);
   }
-
   if (isLoading) {
     return <div
 	style={{
-				margin:  "100%"
+				margin:  "100%",
+        fontFamily: "monospace",
+        fontSize: "25px",
+        width: "100%"
 				}}
-	>Loading...</div>;
+        
+	>PLEASE WAIT! THE OCEAN🌊 IS LOADING...</div>;
   }
 
   return (
@@ -117,7 +120,7 @@ const { data: ownedNFTs } = useOwnedNFTs(nftDropContract, address);
           <div className={styles.nftBoxGrid}>
             {stakedTokens &&
               stakedTokens[0]?.map((stakedToken: BigNumber) => (
-                <NFTCard
+                <NFTCard1
                   tokenId={stakedToken.toNumber()}
                   key={stakedToken.toString()}
                 />
@@ -130,9 +133,14 @@ const { data: ownedNFTs } = useOwnedNFTs(nftDropContract, address);
             {ownedNFTs?.map((nft) => (
               <div className={styles.nftBox} key={nft.metadata.id.toString()}>
                 <ThirdwebNftMedia
-				 style={{
-			  marginLeft: "-28%",
-			  }}
+  style={{
+    marginLeft: "2%",
+    borderRadius: "16px",
+    border: "solid",
+    borderColor: "black",
+    borderWidth: "1px",
+    width: "auto"
+    }}
                   metadata={nft.metadata}
                   className={styles.nftMedia}
                 />

@@ -5,10 +5,13 @@ import styles from "../styles/Home.module.css";
 import Link from "next/link"
 
 
+
 const Home: NextPage = () => {
   const router = useRouter();
 
   return (
+    <>
+
     <div className={styles.container}>
 	<Image alt="logo" width={300} height={100} src="/icons/logo.png" />
       {/* Top Section */}
@@ -45,10 +48,10 @@ const Home: NextPage = () => {
           role="button"
         >
           {/* Staking an NFT */}
-          <Link className={styles.selectBoxTitle} href="https://app.youngparrotnft.com/core/launchpads/bwyc"> MINT #BWYC </Link>
+          <h1 style={{color: "white", fontFamily: "courier", fontSize: "28px", fontWeight: "bolder", border: "0px"}}><a style={{color: "white", fontFamily: "courier", fontSize: "28px", fontWeight: "bolder", border: "0px"}} href="https://app.youngparrotnft.com/core/launchpads/bwyc"> MINT NEW #BWYC </a></h1>
           <p className={styles.selectBoxDescription}>
        10,000 Whale NFT can be minted on YoungParrot NFT Marketplace 
-		   Price: 0.650 CORE <br></br> Member Price: 0.325 CORE 
+		   Price: 0.750 CORE at a fair price for everyone.
           </p>
         </div>
 		
@@ -60,12 +63,13 @@ const Home: NextPage = () => {
           {/* Staking an NFT */}
           <h2 className={styles.selectBoxTitle}>MINT NEW WHALECARD</h2>
           <p className={styles.selectBoxDescription}>
-           WhaleCards are only unique to 1 address and staking them earns you more tokens but minting is expensive.
-		   50 cards can be claimed per address. PRICE: 1 CORE
+Whalecards have an unlimited supply but are burnable. 1000 Cards will be used to cross-chains, Card holders can stake to earn the utility token 
+at higher rates or trade on <a  href="https://marketplace.boredwalesyachtclub.org" style={{color: "white", fontFamily: "courier", fontSize: "16px", fontWeight: "bolder", border: "0px"}}>Whalecard Marketplace</a>.
           </p>
         </div>
       </div>
     </div>
+    </>
   );
 };
 

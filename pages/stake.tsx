@@ -65,22 +65,26 @@ const Stake: NextPage = () => {
   if (isLoading) {
     return <div
 	style={{
-				margin:  "100%"
+				margin:  "100%",
+        fontFamily: "monospace",
+        fontSize: "25px",
+        width: "100%"
 				}}
-	>Loading...</div>;
+        
+	>PLEASE WAIT! THE OCEAN🌊 IS LOADING...</div>;
   }
 
   return (
     <div className={styles.container}>
 			<Image alt="logo" width={300} height={100} src="/icons/logo.png" />
-      <h1 className={styles.h1}>Stake your #BWYC🐳 NFT to Earn the Utility Token(WHLS).</h1>
+      <h3 className={styles.h1}>Stake your #BWYC🐳 NFT to Earn the Utility Token(WHLS).<br></br>Lock Period: 1 Month<br></br>Staking Fees: 0</h3>
       <hr className={`${styles.divider} ${styles.spacerTop}`} />
 
       {!address ? (
         <ConnectWallet />
       ) : (
         <>
-          <h2>$WHLS BALANCES</h2>
+          <h1>$WHLS BALANCES</h1>
           <div className={styles.tokenGrid}>
             <div className={styles.tokenItem}>
               <h3 className={styles.tokenLabel}>Rewards Earned</h3>
@@ -129,9 +133,14 @@ const Stake: NextPage = () => {
             {ownedNfts?.map((nft) => (
               <div className={styles.nftBox} key={nft.metadata.id.toString()}>
                 <ThirdwebNftMedia
-				 style={{
-			  marginLeft: "-28%",
-			  }}
+  style={{
+    marginLeft: "2%",
+    borderRadius: "16px",
+    border: "solid",
+    borderColor: "black",
+    borderWidth: "1px",
+    width: "auto"
+    }}
                   metadata={nft.metadata}
                   className={styles.nftMedia}
                 />
