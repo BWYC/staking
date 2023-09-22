@@ -13,7 +13,7 @@ import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import NFTCard1 from "../components/NFTCard1";
 import {
- contractAddress2,
+  contractAddress2,
   stakingContractAddress1,
   tokenContractAddress,
 } from "../consts/contractAddresses";
@@ -24,15 +24,15 @@ const Stake2: NextPage = () => {
   const address = useAddress();
   const { contract: nftDropContract } = useContract(
     contractAddress2,
-    "nft-drop"
+    "nft-drop",
   );
   const { contract: tokenContract } = useContract(
     tokenContractAddress,
-    "token"
+    "token",
   );
   const { contract, isLoading } = useContract(stakingContractAddress1);
 
-const { data: ownedNFTs } = useOwnedNFTs(nftDropContract, address);
+  const { data: ownedNFTs } = useOwnedNFTs(nftDropContract, address);
   const { data: tokenBalance } = useTokenBalance(tokenContract, address);
   const [claimableRewards, setClaimableRewards] = useState<BigNumber>();
   const { data: stakedTokens } = useContractRead(contract, "getStakeInfo", [
@@ -55,7 +55,7 @@ const { data: ownedNFTs } = useOwnedNFTs(nftDropContract, address);
 
     const isApproved = await nftDropContract?.isApproved(
       address,
-      stakingContractAddress1
+      stakingContractAddress1,
     );
     if (!isApproved) {
       await nftDropContract?.setApprovalForAll(stakingContractAddress1, true);
@@ -63,21 +63,26 @@ const { data: ownedNFTs } = useOwnedNFTs(nftDropContract, address);
     await contract?.call("stake", [[id]]);
   }
   if (isLoading) {
-    return <div
-	style={{
-				margin:  "100%",
-        fontFamily: "monospace",
-        fontSize: "25px",
-        width: "100%"
-				}}
-        
-	>PLEASE WAIT! THE OCEAN🌊 IS LOADING...</div>;
+    return (
+      <div
+        style={{
+          margin: "100%",
+          fontFamily: "monospace",
+          fontSize: "25px",
+          width: "100%",
+        }}
+      >
+        PLEASE WAIT! THE OCEAN🌊 IS LOADING...
+      </div>
+    );
   }
 
   return (
     <div className={styles.container}>
-			<Image alt="logo" width={300} height={100} src="/icons/logo.png" />
-      <h1 className={styles.h1}>Stake your Whalecards NFT to Earn the Utility Token(WHLS).</h1>
+      <Image alt="logo" width={300} height={100} src="/icons/logo.png" />
+      <h1 className={styles.h1}>
+        Stake your Whalecards NFT to Earn the Utility Token(WHLS).
+      </h1>
       <hr className={`${styles.divider} ${styles.spacerTop}`} />
 
       {!address ? (
@@ -89,9 +94,7 @@ const { data: ownedNFTs } = useOwnedNFTs(nftDropContract, address);
             <div className={styles.tokenItem}>
               <h3 className={styles.tokenLabel}>Rewards Earned</h3>
               <p className={styles.tokenValue}>
-                <b
-				
-				>
+                <b>
                   {!claimableRewards
                     ? "Loading..."
                     : ethers.utils.formatUnits(claimableRewards, 18)}
@@ -108,7 +111,12 @@ const { data: ownedNFTs } = useOwnedNFTs(nftDropContract, address);
           </div>
 
           <Web3Button
-		   style={{backgroundColor: "black", borderStyle: "solid", borderColor: "Orange", color: "Orange"}}
+            style={{
+              backgroundColor: "black",
+              borderStyle: "solid",
+              borderColor: "Orange",
+              color: "Orange",
+            }}
             action={(contract) => contract.call("claimRewards")}
             contractAddress={stakingContractAddress1}
           >
@@ -133,20 +141,26 @@ const { data: ownedNFTs } = useOwnedNFTs(nftDropContract, address);
             {ownedNFTs?.map((nft) => (
               <div className={styles.nftBox} key={nft.metadata.id.toString()}>
                 <ThirdwebNftMedia
-  style={{
-    marginLeft: "2%",
-    borderRadius: "16px",
-    border: "solid",
-    borderColor: "black",
-    borderWidth: "1px",
-    width: "auto"
-    }}
+                  style={{
+                    marginLeft: "2%",
+                    borderRadius: "16px",
+                    border: "solid",
+                    borderColor: "black",
+                    borderWidth: "1px",
+                    width: "auto",
+                  }}
                   metadata={nft.metadata}
                   className={styles.nftMedia}
                 />
                 <h3>{nft.metadata.name}</h3>
                 <Web3Button
-				style={{backgroundColor: "black", borderStyle: "solid", borderColor: "Orange", color: "Orange"}}
+               
+                  style={{
+                    backgroundColor: "black",
+                    borderStyle: "solid",
+                    borderColor: "Orange",
+                    color: "Orange",
+                  }}
                   contractAddress={stakingContractAddress1}
                   action={() => stakeNft(nft.metadata.id)}
                 >

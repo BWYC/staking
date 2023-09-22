@@ -15,6 +15,10 @@ const Home: NextPage = () => {
         <h1 className={styles.h1} style={{ fontFamily: "courier" }}>
           Bored Whales Yacht Club STAKING🐋
         </h1>
+        <p style={{ fontStyle: "italic" }}>
+          Staking Earns your $WHLS rewards and locks Whale NFT until minting
+          event ends!
+        </p>
         <div className={styles.nftBoxGrid}>
           <div
             className={styles.optionSelectBox}

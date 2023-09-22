@@ -24,11 +24,11 @@ const Stake: NextPage = () => {
   const address = useAddress();
   const { contract: nftDropContract } = useContract(
     nftDropContractAddress,
-    "nft-drop"
+    "nft-drop",
   );
   const { contract: tokenContract } = useContract(
     tokenContractAddress,
-    "token"
+    "token",
   );
   const { contract, isLoading } = useContract(stakingContractAddress);
   const { data: ownedNfts } = useOwnedNFTs(nftDropContract, address);
@@ -54,7 +54,7 @@ const Stake: NextPage = () => {
 
     const isApproved = await nftDropContract?.isApproved(
       address,
-      stakingContractAddress
+      stakingContractAddress,
     );
     if (!isApproved) {
       await nftDropContract?.setApprovalForAll(stakingContractAddress, true);
@@ -63,21 +63,27 @@ const Stake: NextPage = () => {
   }
 
   if (isLoading) {
-    return <div
-	style={{
-				margin:  "100%",
-        fontFamily: "monospace",
-        fontSize: "25px",
-        width: "100%"
-				}}
-        
-	>PLEASE WAIT! THE OCEAN🌊 IS LOADING...</div>;
+    return (
+      <div
+        style={{
+          margin: "50%",
+          fontFamily: "monospace",
+          fontSize: "25px",
+          width: "100%",
+        }}
+      >
+        PLEASE WAIT! THE OCEAN🌊 IS LOADING...
+      </div>
+    );
   }
 
   return (
     <div className={styles.container}>
-			<Image alt="logo" width={300} height={100} src="/icons/logo.png" />
-      <h3 className={styles.h1}>Stake your #BWYC🐳 NFT to Earn the Utility Token(WHLS).<br></br>Lock Period: 1 Month<br></br>Staking Fees: 0</h3>
+      <Image alt="logo" width={300} height={100} src="/icons/logo.png" />
+      <h3 className={styles.h1}>
+        Stake your #BWYC🐳 NFT to Earn the Utility Token(WHLS).<br></br>Lock
+        Period: 1 Month<br></br>Staking Fees: 0
+      </h3>
       <hr className={`${styles.divider} ${styles.spacerTop}`} />
 
       {!address ? (
@@ -89,9 +95,7 @@ const Stake: NextPage = () => {
             <div className={styles.tokenItem}>
               <h3 className={styles.tokenLabel}>Rewards Earned</h3>
               <p className={styles.tokenValue}>
-                <b
-				
-				>
+                <b>
                   {!claimableRewards
                     ? "Loading..."
                     : ethers.utils.formatUnits(claimableRewards, 18)}
@@ -108,7 +112,12 @@ const Stake: NextPage = () => {
           </div>
 
           <Web3Button
-		   style={{backgroundColor: "black", borderStyle: "solid", borderColor: "Orange", color: "Orange"}}
+            style={{
+              backgroundColor: "black",
+              borderStyle: "solid",
+              borderColor: "Orange",
+              color: "Orange",
+            }}
             action={(contract) => contract.call("claimRewards")}
             contractAddress={stakingContractAddress}
           >
@@ -133,20 +142,25 @@ const Stake: NextPage = () => {
             {ownedNfts?.map((nft) => (
               <div className={styles.nftBox} key={nft.metadata.id.toString()}>
                 <ThirdwebNftMedia
-  style={{
-    marginLeft: "2%",
-    borderRadius: "16px",
-    border: "solid",
-    borderColor: "black",
-    borderWidth: "1px",
-    width: "auto"
-    }}
+                  style={{
+                    marginLeft: "2%",
+                    borderRadius: "16px",
+                    border: "solid",
+                    borderColor: "black",
+                    borderWidth: "1px",
+                    width: "auto",
+                  }}
                   metadata={nft.metadata}
                   className={styles.nftMedia}
                 />
                 <h3>{nft.metadata.name}</h3>
                 <Web3Button
-				style={{backgroundColor: "black", borderStyle: "solid", borderColor: "Orange", color: "Orange"}}
+                  style={{
+                    backgroundColor: "black",
+                    borderStyle: "solid",
+                    borderColor: "Orange",
+                    color: "Orange",
+                  }}
                   contractAddress={stakingContractAddress}
                   action={() => stakeNft(nft.metadata.id)}
                 >
