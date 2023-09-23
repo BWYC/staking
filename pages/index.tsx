@@ -123,7 +123,7 @@ const Home: NextPage = () => {
               will be used to cross-chains, Card holders can stake to earn the
               utility token at higher rates or trade on{" "}
               <a
-                href="https://marketplace.boredwalesyachtclub.org"
+                href="https://marketplace.boredwhalesyachtclub.org"
                 style={{
                   color: "white",
                   fontFamily: "courier",
